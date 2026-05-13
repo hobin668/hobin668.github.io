@@ -1,0 +1,56 @@
+baseURL = 'https://hobin.github.io/'
+languageCode = 'zh-CN'
+title = '科技芯前沿'
+theme = 'techcore'
+
+[params]
+  author = '阿镔'
+  description = '博览科技｜洞见未来 — 聚焦AI、芯片、智能硬件前沿动态'
+  keywords = ['AI', '芯片', '科技', '人工智能', '智能硬件', '大模型']
+  qrcode = '/images/qrcode.png'
+
+[menu]
+  [[menu.main]]
+    name = '首页'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'AI芯片'
+    url = '/categories/ai-chip/'
+    weight = 2
+  [[menu.main]]
+    name = '大模型'
+    url = '/categories/llm/'
+    weight = 3
+  [[menu.main]]
+    name = '机器人'
+    url = '/categories/robot/'
+    weight = 4
+  [[menu.main]]
+    name = '智能硬件'
+    url = '/categories/smart-hw/'
+    weight = 5
+  [[menu.main]]
+    name = '关于'
+    url = '/about/'
+    weight = 6
+
+[outputs]
+  home = ['HTML', 'RSS']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = true
+
+[sitemap]
+  changefreq = 'daily'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'

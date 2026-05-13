@@ -1,0 +1,47 @@
+{{ define "main" }}
+<article class="single-post">
+  <header class="post-header">
+    <div class="post-meta">
+      <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+      {{ with .Params.categories }}
+        {{ range . }}
+          <a href="{{ "categories/" | relURL }}{{ . | urlize }}/" class="post-category">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Params.tags }}
+      <div class="post-tags">
+        {{ range . }}
+          <a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="tag">#{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <div class="post-share">
+    <p>觉得不错？分享给朋友看看 👇</p>
+  </div>
+
+  <div class="post-nav">
+    {{ with .PrevInSection }}
+      <a href="{{ .Permalink }}" class="nav-prev">← {{ .Title }}</a>
+    {{ end }}
+    {{ with .NextInSection }}
+      <a href="{{ .Permalink }}" class="nav-next">{{ .Title }} →</a>
+    {{ end }}
+  </div>
+
+  <div class="wechat-cta">
+    <h3>📱 关注「科技芯前沿」公众号</h3>
+    <p>每日8:15推送AI科技前沿资讯，不错过任何重要动态</p>
+    {{ if .Site.Params.qrcode }}
+      <img src="{{ .Site.Params.qrcode | relURL }}" alt="公众号二维码" width="150">
+    {{ end }}
+  </div>
+</article>
+{{ end }}
